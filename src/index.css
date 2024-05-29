@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+   font-family: "Lexend", sans-serif !important;
+   margin: 0;
+   padding: 0;
+}
+/* body {
+   min-width: 1200px;
+} */
+
+@media all {
+   .page-break {
+      display: none;
+   }
+}
+@page {
+   margin: 1rem !important;
+}
+
+@media print {
+   html,
+   body {
+      height: initial !important;
+      min-width: auto !important;
+   }
+}
+
+@media print {
+   .page-break {
+      margin-top: 1rem;
+      display: block;
+      page-break-before: auto;
+   }
+}
+
+.inputs .inputTitle {
+   font-size: 12px !important;
+   font-weight: 500 !important;
+   color: #31363f !important;
+   margin-bottom: 8px;
+}
+
+.inputs .inputTitleLogin {
+   font-size: 12px !important;
+   font-weight: 400 !important;
+   color: #31363f !important;
+   margin-bottom: 8px;
+}
+.Toastify__toast-body {
+   white-space: pre-line;
+   font-size: 12px;
+}
+::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+}
+::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   -webkit-box-shadow: 0 0 0 30px #f9f9fb inset !important;
+}
+
+input {
+   padding: 10px 12px !important;
+   border-radius: 4px !important;
+}
+
+select {
+   background-color: #f9f9fb !important;
+}
+
+.css-1c1vaai {
+   z-index: 5000;
+}
+.title {
+   color: #496ad0;
+   font-weight: 600 !important;
+   cursor: pointer;
+}
+
+.titleHeader {
+   font-size: 16px;
+   color: #121127;
+   font-weight: 500 !important;
+}
+& .MuiAutocomplete-input {
+   padding: 0 !important;
+}
+& .MuiAutocomplete-root .MuiAutocomplete-inputRoot,
+.MuiSelect-select {
+   padding: 10px 12px !important;
+}
+& .MuiAutocomplete-inputRoot {
+   height: 41px !important;
+}
+
+& .MuiInputBase-root {
+   border: 2px solid #f3f3f6 !important;
+   transition: 250ms all ease-in-out !important;
+}
+
+& .MuiInputBase-root:not(.Mui-disabled):hover {
+   transition: 250ms all ease-in-out !important;
+   border: 2px solid #4e8af4 !important;
+}
+
+.is_default {
+   background-color: #e7e7e790;
+}
+
+/* colors: {
+   light: #5a8694,
+   mid: #4E7683,
+   dark: #3C5B6F
+} */
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   scroll-behavior: smooth;
+}
+
+:root {
+   --main: #edf2fa;
+   --primary: #385493;
+   --secondary: #214e8f;
+   --darkgrey: #22262a;
+   --lightgrey: #d3d3d3;
+   --grey: #808080;
+}
+
+body {
+   color: #333;
+   font-family: "Poppins", sans-serif;
+}
+
+ul {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+   columns: #fff;
+}
+
+.primary-color {
+   color: var(--primary);
+}
+
+.button {
+   width: 100%;
+   padding: 8px 0;
+   border-radius: 4px;
+   border: 1px solid var(--primary);
+   background-color: var(--primary);
+   color: #fff;
+   cursor: pointer;
+   transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+   border: 1px solid var(--secondary);
+   background-color: var(--secondary);
+}
