@@ -48,10 +48,10 @@ const CustomLoginButton = ({
                        },
                     }
                   : {
-                       height: "50px !important",
-                       backgroundColor: "#203F53 !important",
+                       height: "40px !important",
+                       backgroundColor: "#0a3a84 !important",
                        "&:hover": {
-                          backgroundColor: "#304F63 !important",
+                          backgroundColor: "#0d48a5 !important",
                        },
                     }
             }

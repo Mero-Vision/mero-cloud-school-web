@@ -1,6 +1,6 @@
 .footer {
    width: 100%;
-   background-color: var(--main);
+   background-color: var(--primary);
 }
 
 .footer .container {
@@ -15,7 +15,7 @@
 .footer .logo {
    display: flex;
    align-items: center;
-   color: var(--primary);
+   color: var(--main);
 }
 
 .footer .menu-box {
@@ -25,7 +25,7 @@
 }
 
 .footer .menu-box .link {
-   color: var(--primary);
+   color: var(--main);
 }
 
 .footer h6,
@@ -70,11 +70,11 @@ p {
    padding: 2rem 4rem;
    display: flex;
    justify-content: space-between;
-   border-top: 1px solid var(--primary);
+   border-top: 1px solid var(--main);
 }
 
 .footer .content .rights p {
-   color: var(--primary);
+   color: var(--main);
 }
 
 @media screen and (max-width: 960px) {

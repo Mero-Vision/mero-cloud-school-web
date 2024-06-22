@@ -6,7 +6,7 @@ import { getToken } from "../utils/helpers";
 // initialize an empty api service that we'll inject endpoints into later as needed
 export const mainTestApi = createApi({
    baseQuery: fetchBaseQuery({
-      baseUrl: "https://hospitality-api.scoduscorp.com/api/",
+      baseUrl: "https://mero-cloud-school.com/api/",
       prepareHeaders: (headers) => {
          const token = getToken()?.access_token;
          if (token) {

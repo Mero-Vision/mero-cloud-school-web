@@ -144,7 +144,10 @@ export const CustomInputLogin = memo(
                               },
                               loginInput && {
                                  "& .MuiInputBase-input": {
-                                    padding: "15px !important",
+                                    padding: "10px !important",
+                                 },
+                                 "& .MuiInputBase-root": {
+                                    width: "315px",
                                  },
                               })
                            }

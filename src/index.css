@@ -123,15 +123,18 @@ select {
    margin: 0;
    padding: 0;
    scroll-behavior: smooth;
+   /* user-select: none; */
 }
 
 :root {
-   --main: #edf2fa;
-   --primary: #385493;
-   --secondary: #214e8f;
+   --main: #fff;
+   --primary: #020c1c;
+   --secondary: #0a3a84;
+   --secondary_light: #0d48a5;
+   --secondary_very_light: #f5f8fe;
    --darkgrey: #22262a;
    --lightgrey: #d3d3d3;
-   --grey: #808080;
+   --grey: #bcc2bf;
 }
 
 body {

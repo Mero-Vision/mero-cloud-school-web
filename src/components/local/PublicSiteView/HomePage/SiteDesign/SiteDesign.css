@@ -1,0 +1,22 @@
+@keyframes ripple {
+   to {
+      transform: scale(4);
+      opacity: 0;
+   }
+}
+.container {
+   /* max-width: 1240px; */
+   margin: auto;
+}
+
+@media screen and (max-width: 1100px) {
+   .container {
+      padding: 0 1rem;
+   }
+}
+
+@media screen and (max-width: 718px) {
+   .container {
+      padding: 0 1rem;
+   }
+}

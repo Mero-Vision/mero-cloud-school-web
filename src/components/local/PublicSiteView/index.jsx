@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "./Hero/Hero";
+import HomePage from "./HomePage";
 
 const PublicSiteView = () => {
    return (
       <>
-         <Hero />
+         <HomePage />
       </>
    );
 };

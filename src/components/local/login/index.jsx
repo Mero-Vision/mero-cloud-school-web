@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Grid, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -8,18 +8,76 @@ import * as yup from "yup";
 import { auth, useLoginMutation } from "../../../apis/authApi";
 // import LoginImage from "../../../assets/login/Side.svg";
 // import Right from "../../../assets/login/right.svg";
+import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
+import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
+import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import Logo from "../../../assets/logo.png";
 import CustomLoginButton from "../../common/CustomButton/CustomLoginButton";
 import { CustomInputLogin } from "../../common/CustomInputs/CustomInputLogin";
 import styles from "./styles";
-
 const validationSchema = yup.object().shape({
    email: yup.string().required("Email is required"),
    password: yup.string().required("Password is required"),
 });
 
 const Login = () => {
+   const navigate = useNavigate();
    const classes = styles();
+   const isMobile = window.innerWidth < 900; //Add the width you want to check for here (now 768px)
+
+   const loginInfoData = [
+      {
+         title: "Visit our support center",
+         subtitle: "Get guidance from our Support team.",
+         icon: (
+            <Box className={classes.iconBox}>
+               <ImportContactsRoundedIcon
+                  className={classes.iconBoxImg}
+               />
+            </Box>
+         ),
+         url: "/",
+      },
+      {
+         title: "View our Product Roadmap",
+         subtitle: "Browse and vote what's next.",
+         icon: (
+            <Box className={classes.iconBox}>
+               <AccessTimeRoundedIcon
+                  className={classes.iconBoxImg}
+               />
+            </Box>
+         ),
+         url: "/",
+      },
+      {
+         title: "Check out the latest releases",
+         subtitle: "See new features and updates.",
+         icon: (
+            <Box className={classes.iconBox}>
+               <UploadFileOutlinedIcon
+                  className={classes.iconBoxImg}
+               />
+            </Box>
+         ),
+         url: "/",
+      },
+      {
+         title: "Join our community",
+         subtitle: "Discuss with with thousands of users.",
+         icon: (
+            <Box className={classes.iconBox}>
+               <PeopleAltOutlinedIcon
+                  className={classes.iconBoxImg}
+               />
+            </Box>
+         ),
+         url: "/",
+      },
+   ];
+
    return (
       <>
          {/* <Box className={classes.loginContainer}> */}
@@ -30,96 +88,53 @@ const Login = () => {
                <MainFooter />
             </Box> */}
             <Grid container spacing={0}>
-               <Grid item lg={6} xs={12}>
-                  <Box
-                     sx={{
-                        background:
-                           "radial-gradient(ellipse at right top, #153448, #3C5B6F, #8FD4CB)",
-                        height: "100%",
-                        width: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        position: "relative",
-                        // justifyContent: "center",
-                     }}
-                  >
-                     <Box sx={{ padding: "0px 80px 0px 130px" }}>
-                        <Box
-                           sx={{
-                              position: "absolute",
-                              top: "50px",
-                              left: "130",
-                           }}
-                        >
-                           <Box sx={{ width: "56px" }}>
-                              <img
-                                 src={Logo}
-                                 alt=""
-                                 style={{
-                                    width: "100%",
-                                    height: "100%",
-                                 }}
+               <Grid item md={6} sm={12} sx={{ width: "100%" }}>
+                  <LoginForm />
+               </Grid>
+               <Grid item md={6} sm={12} sx={{ width: "100%" }}>
+                  <Box className={classes.grid2}>
+                     <Box className={classes.grid2Wrap}>
+                        {loginInfoData?.map((item, index) => (
+                           <Box
+                              onClick={() => navigate(item?.url)}
+                              key={index}
+                              className={classes.infoCard}
+                           >
+                              <Box className={classes.infoCardG1}>
+                                 {item?.icon}
+                                 <Box>
+                                    <Box
+                                       className={
+                                          classes.grid2BoxTitle
+                                       }
+                                    >
+                                       {item?.title}
+                                    </Box>
+                                    <Box
+                                       className={
+                                          classes.grid2BoxSubtitle
+                                       }
+                                    >
+                                       {item?.subtitle}
+                                    </Box>
+                                 </Box>
+                              </Box>
+
+                              <ArrowForwardIcon
+                                 className={classes.arrowIcon}
                               />
                            </Box>
-                        </Box>
-                        <Typography
-                           sx={{
-                              color: "white",
-                              fontSize: "80px",
-                              fontWeight: "300",
-                           }}
-                        >
-                           Welcome to
-                           <Box sx={{ fontWeight: "600" }}>Mero School</Box>
-                        </Typography>
+                        ))}
                      </Box>
                   </Box>
                </Grid>
-               <Grid item lg={6} xs={12}>
-                  <LoginForm />
-               </Grid>
             </Grid>
-            {/* <Box className="left">
-               <img src={Left} />
-            </Box>
-            <Box className="right">
-               <img src={Right} />
-            </Box> */}
          </Box>
       </>
    );
 };
 
 export default Login;
-
-const Header = () => {
-   const classes = styles();
-   return (
-      <Box className={classes.header}>
-         <Box className="logoDiv">
-            <img src={Logo} />
-            <Typography className="title">Mero School</Typography>
-         </Box>
-         {/* <Box className="singupDiv">
-            <Typography>Don't have an account?</Typography>
-            <Typography className="singup">Signup</Typography>
-         </Box> */}
-      </Box>
-   );
-};
-const Footer = () => {
-   const classes = styles();
-   return (
-      <Box className={classes.footer}>
-         <Box>
-            <Typography>Mero School copyright© 2023</Typography>
-         </Box>
-         <Box>
-            <Typography>Powered by Mero School Pvt.Ltd</Typography>
-         </Box>
-      </Box>
-   );
-};
 
 const LoginForm = () => {
    const classes = styles();
@@ -152,12 +167,6 @@ const LoginForm = () => {
          return data ? true : false;
       };
       navigate("/switch-branch");
-
-      // if (checkRole("accountingfirm")) {
-      // } else if (checkRole("company")) {
-      //   navigate("/");
-      //   localStorage.setItem("company", JSON.stringify(res?.user));
-      // }
    };
 
    const dispatch = useDispatch();
@@ -250,23 +259,46 @@ const LoginForm = () => {
          .catch((rejected) => console.log({ rejected }));
    };
 
-   useEffect(() => {
-      localStorage?.getItem("account_access_token") && navigate("/");
-   }, [localStorage?.getItem("account_access_token")]);
+   // useEffect(() => {
+   //    localStorage?.getItem("account_access_token") && navigate("/");
+   // }, [localStorage?.getItem("account_access_token")]);
 
    return (
       <form onSubmit={handleSubmit(onSubmit)}>
          <Box className={classes.mainDiv}>
-            <Box className="formDiv">
-               <Box flex={1}>
+            <Box className={classes.formDiv}>
+               <Box>
                   <Box className={classes.form}>
                      <Box className={"formTitleDiv"}>
-                        <Typography className={"formTitle"}>
-                           Login
-                        </Typography>
-                        <Typography className={"formSubtitle"}>
-                           Welcome back! Please login to your account
-                        </Typography>
+                        <Box
+                           sx={{
+                              display: "flex",
+                              justifyContent: "center",
+                              // marginTop: "-30px",
+                           }}
+                        >
+                           <Box
+                              sx={{
+                                 width: "45px",
+                                 height: "100%",
+                              }}
+                           >
+                              <img
+                                 src={Logo}
+                                 alt=""
+                                 style={{
+                                    width: "100%",
+                                    height: "100%",
+                                 }}
+                              />
+                           </Box>
+                        </Box>
+                        <Box className={"formTitle"}>
+                           Welcome back{" "}
+                        </Box>
+                        <Box className={"formSubtitle"}>
+                           Login to Mero Cloud School CMS
+                        </Box>
                      </Box>
                      <Box>
                         <Box>
@@ -313,8 +345,8 @@ const LoginForm = () => {
                      </Box>
                      <Box
                         className={"buttonDiv"}
-                        mt={"35px"}
-                        mb={"50px"}
+                        mt={"25px"}
+                        mb={"25px"}
                      >
                         <CustomLoginButton
                            buttonName={"Login"}
@@ -325,42 +357,27 @@ const LoginForm = () => {
                            justifyContent={"start"}
                         />
                      </Box>
-                     <Box className="helpDiv">
+                     {/* <Box className="helpDiv">
                         <Typography>Need assistance?</Typography>
                         <Typography className="help">
                            Contact
                         </Typography>
-                     </Box>
+                     </Box> */}
                   </Box>
-               </Box>
-            </Box>
-            <Box
-               sx={{
-                  position: "absolute",
-                  bottom: "20px",
-                  // right: "20px",
-               }}
-            >
-               <Box>
-                  <Typography
-                     sx={{ fontSize: "10px", color: "#8a8a8a" }}
-                  >
-                     Copyright © 2024 Mero School. All rights reserved.
-                  </Typography>
                </Box>
             </Box>
             {/* <Box
                sx={{
                   position: "absolute",
                   bottom: "20px",
-                  right: "20px",
                }}
             >
                <Box>
                   <Typography
-                     sx={{ fontSize: "12px", color: "#8a8a8a" }}
+                     sx={{ fontSize: "10px", color: "#8a8a8a" }}
                   >
-                     Powered by Mero School
+                     Copyright © 2024 Mero School. All rights
+                     reserved.
                   </Typography>
                </Box>
             </Box> */}

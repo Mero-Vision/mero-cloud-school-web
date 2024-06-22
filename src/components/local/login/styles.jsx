@@ -87,19 +87,118 @@ const styles = makeStyles((theme) => ({
       minWidth: "auto !important",
    },
    mainDiv: {
-      backgroundColor: "#F5F5F5",
-      height: "100vh",
+      backgroundColor: "#F5F8FE",
+      height: "100dvh",
       // height: "max-content",
       display: "flex",
       justifyContent: "center",
+      alignItems: "center",
       position: "relative",
-      "& .formDiv": {
-         padding: "0px 130px",
-         width: "1130px",
-         display: "flex",
-         alignItems: "center",
-         columnGap: "105px",
+      width: "auto",
+      // paddingTop: "50px",
+      [theme.breakpoints.down("md")]: {
+         // paddingTop: "80px",
       },
+   },
+   formDiv: {
+      padding: "0px 130px",
+      // width: "1130px",
+      display: "flex",
+      // alignItems: "center",
+      columnGap: "105px",
+      [theme.breakpoints.down("lg")]: {
+         padding: "0px 60px",
+         // width: "100%",
+      },
+      [theme.breakpoints.down("md")]: {
+         padding: "0px 30px",
+         // width: "100%",
+      },
+      [theme.breakpoints.down("sm")]: {
+         padding: "0px 20px",
+         // width: "100%",
+      },
+   },
+   grid2: {
+      background:
+         "linear-gradient(120deg, #020c1c, #0D48A5, #2a77ed) !important",
+      height: "100%",
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+      position: "relative",
+      [theme.breakpoints.down("lg")]: {
+         // padding: "50px 0px",
+         height: "100dvh",
+      },
+   },
+   grid2Wrap: {
+      display: "flex",
+      justifyContent: "center",
+      flexDirection: "column",
+      alignItems: "center",
+      width: "100%",
+      // padding: "0px 130px 0px 130px",
+   },
+   infoCard: {
+      display: "flex",
+      justifyContent: "space-between",
+      width: "400px",
+      alignItems: "center",
+      padding: "15px 0px",
+      borderBottom: "1px solid rgba(249, 249, 249, 0.14)",
+      cursor: "pointer",
+
+      "&:last-child": {
+         borderBottom: "none !important",
+      },
+      "&:hover $arrowIcon": {
+         transition: "0.2s ease-in-out", // Adding transition for smooth effect
+         marginRight: "-10px",
+      },
+
+      [theme.breakpoints.down("sm")]: {
+         width: "300px",
+         padding: "25px 0px",
+      },
+   },
+
+   infoCardG1: {
+      display: "flex",
+      alignItems: "center",
+      gap: "12px",
+   },
+   arrowIcon: {
+      color: "rgba(249, 249, 249, 0.50)",
+      fontSize: "18px",
+      transition: "0.2s ease-in-out", // Adding transition for smooth effect
+   },
+   iconBox: {
+      width: "40px",
+      height: "40px",
+      backgroundColor: "rgba(249, 249, 249, 0.14) !important",
+      display: "flex",
+      justifyContent: "center",
+      // width: "100%",
+      alignItems: "center",
+      borderRadius: "2px",
+   },
+   iconBoxImg: {
+      color: "#fff",
+   },
+
+   grid2BoxTitle: {
+      color: "white",
+      fontSize: "16px",
+      fontWeight: "400",
+   },
+   grid2BoxSubtitle: {
+      color: "white",
+      fontSize: "12px",
+      fontWeight: "300",
+   },
+   boxTitleBox: {
+      fontWeight: "600",
    },
    form: {
       "& .MuiInputLabel-root": {
@@ -109,14 +208,21 @@ const styles = makeStyles((theme) => ({
          borderColor: "#D1D1DB !important",
       },
       "& .formTitleDiv": {
-         marginBottom: "36px",
+         marginBottom: "26px",
          "& .formTitle": {
-            fontSize: "23px",
+            textAlign: "center",
+            fontSize: "20px",
+            marginTop: "18px",
             color: "#121127",
-            fontWeight: "600 !important",
-            marginBottom: "10px",
+            fontWeight: "500 !important",
+            marginBottom: "6px",
+            [theme.breakpoints.down("md")]: {
+               marginTop: "50px",
+            },
          },
          "& .formSubtitle": {
+            textAlign: "center",
+
             fontSize: "16px",
             color: "#8a8a8a",
             fontWeight: "400 !important",
@@ -137,7 +243,7 @@ const styles = makeStyles((theme) => ({
          fontSize: "13px",
          color: "#8a8a8a",
          "& .help": {
-            color: "#4E7683",
+            color: "#0d48a5",
             textDecoration: "underline",
             cursor: "pointer",
          },
