@@ -19,6 +19,6 @@ jobs:
         script: |
           cd /home/merocloudschool/public_html 
           git pull origin main
-          yarn
+          yarn install
           yarn dev
           git status
