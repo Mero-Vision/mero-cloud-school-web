@@ -18,8 +18,9 @@ jobs:
               password: ${{ secrets.PASSWORD }}
               script: |
                  cd /home/merocloudschool/public_html 
-                 	git config --global --add safe.directory /home/merocloudschool/public_html
-                 git pull origin main
+                 git config --global --add safe.directory /home/merocloudschool/public_html
+                 git pull origin deploy
                  yarn install
-                 yarn dev
+                 yarn dev                 
                  git status
+
