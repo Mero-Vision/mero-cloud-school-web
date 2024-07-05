@@ -7,19 +7,14 @@ const baseQuery = fetchBaseQuery({
       if (token) {
          headers?.set("Authorization", `Bearer ${token}`);
          headers?.set(
-            "branch-id",
-            JSON.parse(localStorage.getItem("company"))?.id
+            "institution-id",
+            JSON.parse(localStorage.getItem("institution"))?.id
          );
-         headers?.set(
-            "accounting_firm_id",
-            JSON.parse(localStorage.getItem("user"))
-               ?.accounting_firms?.[0]?.id
-         );
+
          headers?.set("Accept", "application/json");
 
          return headers;
       } else {
-         headers?.set("Accept", "application/json");
       }
    },
 });

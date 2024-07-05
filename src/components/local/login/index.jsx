@@ -13,7 +13,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ImportContactsRoundedIcon from "@mui/icons-material/ImportContactsRounded";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
-import Logo from "../../../assets/logo.png";
+import Logo from "../../../assets/meroSchoolLogo.png";
 import CustomLoginButton from "../../common/CustomButton/CustomLoginButton";
 import { CustomInputLogin } from "../../common/CustomInputs/CustomInputLogin";
 import styles from "./styles";
@@ -182,6 +182,7 @@ const LoginForm = () => {
             const auth_token = res?.data?.token;
             const refresh_token = res?.data?.refresh_token;
             const user = res?.data?.user;
+            const institution = res?.data?.institution;
             const business_service =
                res?.data?.user?.company?.services;
             localStorage.setItem(
@@ -194,67 +195,17 @@ const LoginForm = () => {
             );
             localStorage.setItem("user", JSON.stringify(user) || "");
             localStorage.setItem(
+               "institution",
+               JSON.stringify(institution) || ""
+            );
+            localStorage.setItem(
                "business_service",
                JSON.stringify(business_service) || []
             );
             dispatch(auth(res?.data));
             setFullfiledData(res?.data);
 
-            if (
-               !res?.data?.user?.roles?.includes("admin") &&
-               !res?.data?.user?.permissions?.includes(
-                  "company-panel-view"
-               ) &&
-               res?.data?.user?.permissions?.includes(
-                  "company-pos-view"
-               )
-            ) {
-               navigate("/pos");
-               localStorage.setItem(
-                  "company",
-                  JSON.stringify(res?.data?.user?.branches?.[0]) || ""
-               );
-               localStorage.setItem(
-                  "is_company",
-                  JSON.stringify(true) || ""
-               );
-            } else if (
-               !res?.data?.user?.roles?.includes("admin") &&
-               !res?.data?.user?.permissions?.includes(
-                  "company-panel-view"
-               ) &&
-               !res?.data?.user?.permissions?.includes(
-                  "company-pos-view"
-               )
-            ) {
-               navigate("/switch-branch");
-            } else if (
-               res?.data?.user?.roles?.includes("admin") &&
-               res?.data?.user?.permissions?.includes(
-                  "company-panel-view"
-               ) &&
-               res?.data?.user?.branches?.length > 1
-            ) {
-               navigate("/switch-branch");
-            } else if (
-               (res?.data?.user?.roles?.includes("admin") ||
-                  res?.data?.user?.permissions?.includes(
-                     "company-panel-view"
-                  )) &&
-               res?.data?.user?.branches?.length === 1
-            ) {
-               navigate("/dashboard");
-               localStorage.setItem(
-                  "company",
-                  JSON.stringify(res?.data?.user?.branches?.[0]) || ""
-               );
-               localStorage.setItem(
-                  "is_company",
-                  JSON.stringify(true) || ""
-               );
-            } else {
-               navigate("/switch-branch");
-            }
+            navigate("/dashboard");
          })
          .catch((rejected) => console.log({ rejected }));
    };
@@ -278,9 +229,11 @@ const LoginForm = () => {
                            }}
                         >
                            <Box
+                              onClick={() => navigate("/")}
                               sx={{
-                                 width: "45px",
+                                 width: "150px",
                                  height: "100%",
+                                 cursor: "pointer",
                               }}
                            >
                               <img

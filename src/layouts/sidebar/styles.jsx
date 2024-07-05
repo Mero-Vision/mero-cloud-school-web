@@ -46,11 +46,11 @@ const useStyles = makeStyles((theme) => ({
       paddingBlock: ".8rem",
    },
    nav: {
-      borderLeft: "4px solid #fff !important",
+      borderLeft: "4px solid #4e7683 !important",
 
       "& > a": {
-         transition: "all 1s ease-in-out",
-         color: theme.palette.text.main,
+         transition: "all 0.3s ease-in-out",
+         color: "#fff",
          textDecoration: "none",
       },
    },
@@ -59,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
       color: "#4E7683 !important",
       "& > *": {
          background: "#edf8ff !important",
-         borderLeft: "4px solid #4E7683 !important",
+         borderRadius: "8px",
+         // borderLeft: "4px solid #4E7683 !important",
       },
       "& .MuiTypography-root": {
          fontWeight: "600",
@@ -68,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
    inactiveClass: {
       transition: "all 1s ease-in-out",
       "& > *": {
-         borderLeft: "4px solid #fff !important",
+         // borderLeft: "4px solid #4e7683 !important",
       },
       "& .MuiTypography-root": {
          fontWeight: "400",
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
          left: "-8px",
          width: "9px",
          height: "1px",
-         background: "#E5E5EB",
+         background: "#edf8ff",
          zIndex: -1,
       },
 

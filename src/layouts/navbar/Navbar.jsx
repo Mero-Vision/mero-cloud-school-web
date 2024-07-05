@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import PaymentMethodBox from "./PaymentMethodBox";
 
+import logo from "../../assets/meroSchoolLogo.png";
+
 const Navbar = () => {
    const navigate = useNavigate();
    const [click, setClick] = useState(false);
@@ -263,7 +265,7 @@ const Navbar = () => {
             >
                <div className="logo">
                   <Box onClick={() => handleNavigate("/")}>
-                     <h1 className="logo">Mero School</h1>
+                     <img src={logo} alt="" />
                   </Box>
                </div>
                {windowWidth >= 1200 ? (
@@ -383,6 +385,7 @@ const Navbar = () => {
                            display: "flex",
                            justifyContent: "space-between",
                            padding: "0.7rem",
+                           paddingLeft: "0.5rem",
                         }}
                      >
                         <Box
@@ -399,10 +402,20 @@ const Navbar = () => {
                               lineHeight: "1",
                            }}
                         >
-                           <Box>Mero Cloud</Box>
-                           <Box sx={{ textAlign: "start" }}>
-                              School
-                           </Box>
+                           <div style={{ width: "150px " }}>
+                              <Box
+                                 onClick={() => handleNavigate("/")}
+                              >
+                                 <img
+                                    src={logo}
+                                    alt=""
+                                    style={{
+                                       width: "100%",
+                                       height: "100%",
+                                    }}
+                                 />
+                              </Box>
+                           </div>
                         </Box>
                         <div onClick={handleClick}>
                            {click && (

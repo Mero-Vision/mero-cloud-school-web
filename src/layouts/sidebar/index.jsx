@@ -1,5 +1,5 @@
 import { ExpandMore } from "@mui/icons-material";
-import { Collapse, Typography } from "@mui/material";
+import { Collapse } from "@mui/material";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
@@ -12,7 +12,7 @@ import { styled } from "@mui/material/styles";
 import * as React from "react";
 import { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/meroSchoolLogo.png";
 import AllModals from "../../components/common/AllModals/AllModals";
 import { SidebarConstants } from "../../constants/SidebarConstants";
 import useCheckRole from "../../hooks/useCheckRole";
@@ -117,7 +117,15 @@ export default function Sidebar() {
       <Box
          sx={{
             display: "flex",
-            "& .MuiDrawer-paper": { border: "none" },
+            backgroundColor: " #F9F9FB !important",
+            "& .MuiDrawer-paper": {
+               border: "none",
+               backgroundColor: "#4e7683 !important",
+               margin: "18px",
+               borderRadius: "18px",
+               paddingBottom: "20px",
+               height: "calc(100vh - 36px)",
+            },
          }}
       >
          <CssBaseline />
@@ -126,15 +134,15 @@ export default function Sidebar() {
             <Box className={classes.drawer}>
                <DrawerHeader>
                   <Box className={classes.drawerHeader}>
-                     <img src={Logo} style={{ width: "30px" }} />
+                     <img src={Logo} style={{ width: "100%" }} />
                      <Box>
-                        <Typography
+                        {/* <Typography
                            fontWeight={600}
                            fontSize={"16px"}
                            sx={{ lineHeight: 1.3 }}
                         >
                            Mero School{" "}
-                        </Typography>
+                        </Typography> */}
 
                         {/* <Typography
                            fontWeight={500}
@@ -225,6 +233,11 @@ export default function Sidebar() {
                                                 open ===
                                                    item?.label &&
                                                 "#f6f6f6",
+                                             color:
+                                                open ===
+                                                   item?.label &&
+                                                "#000",
+                                             borderRadius: "8px",
                                           }}
                                        >
                                           <ListItemIcon

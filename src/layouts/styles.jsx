@@ -1,6 +1,11 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
+   rootDashboard: {
+      margin: 0,
+      padding: "0",
+      display: "flex",
+   },
    root: {
       margin: 0,
       padding: "0",
@@ -48,9 +53,13 @@ const useStyles = makeStyles((theme) => ({
    },
 
    content: {
-      // minHeight: "calc(100vh - 70px)",
-      // paddingBlock: "1rem",
-      // paddingInline: "46px",
+      width: "100%",
+   },
+
+   contentDashboard: {
+      minHeight: "calc(100vh - 63px)",
+      paddingBlock: "1rem",
+      paddingInline: "46px",
       // width: "calc(100vw - 245px)",
       width: "100%",
    },
