@@ -69,9 +69,9 @@ const Hero = () => {
                      // }}
                      style={{ width: "100%", color: "#020c1c" }}
                   >
-                     We are the best all-in-one cloud-based school
-                     software and digital learning system for growing,
-                     big and ambitious names in education.
+                     Mero school are the best all-in-one cloud-based
+                     school software and digital learning system for
+                     growing, big and ambitious names in education.
                   </motion.p>
                   <motion.div
                      initial={!isMobile && { x: -150 }}
